@@ -15,6 +15,10 @@ export default abstract class Race {
     return this._dexterity;
   }
 
+  set dexterity(newHp: number) {
+    this._dexterity = newHp;
+  }
+
   static createdRacesInstances(): number {
     throw new Error('Not implemented');
   }
