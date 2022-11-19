@@ -19,8 +19,8 @@ class Character implements Fighter {
     name: string,
   ) {
     this._dexterity = getRandomInt(1, 10);
-    this._race = new Elf('Mathews', this._dexterity);
-    this._archetype = new Mage('Xablau', 'mana');
+    this._race = new Elf(name, this._dexterity);
+    this._archetype = new Mage(name, 'mana');
     this._maxLifePoints = this._race.maxLifePoints / 2;
     this._lifePoints = this._maxLifePoints;
     this._strength = getRandomInt(1, 10);
@@ -75,7 +75,7 @@ class Character implements Fighter {
   }
 
   attack(enemy: Fighter): void {
-    this.receiveDamage(enemy.strength);
+    enemy.receiveDamage(this._strength);
   }
 
   levelUp(): void {
@@ -93,6 +93,7 @@ class Character implements Fighter {
   }
 
   special?(enemy: Fighter): void {
+    console.log('Atacar!');
     setTimeout(() => {
       this._maxLifePoints = enemy.lifePoints * 2;
       this._strength = enemy.strength * 2;
