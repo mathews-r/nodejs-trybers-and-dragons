@@ -1,23 +1,22 @@
-import Fighter from '../Fighter';
-import Monster from '../Monster';
+import Fighter, { SimpleFighter } from '../Fighter';
+// import Monster from '../Monster';
 import Battle from './Battle';
 
 export default class PVE extends Battle {
-  private _monster: Monster[];
+  private _monster: SimpleFighter[];
 
-  constructor(character: Fighter, monster: Monster[]) {
-    super(character);
+  constructor(player: Fighter, monster: SimpleFighter[]) {
+    super(player);
     this._monster = monster;
   }
 
   fight(): number {
-    while (this.player.lifePoints !== -1) {
-      this.player.attack(this._monster[0]);
-      this._monster[0].attack(this.player);
-      if (this.player.lifePoints === -1) {
-        break;
+    this._monster.forEach((monster) => {
+      while (this.player.lifePoints !== -1 && monster.lifePoints !== -1) {
+        this.player.attack(monster);
+        monster.attack(this.player);
       } 
-    }
+    });
     return super.fight();
   }
 }
