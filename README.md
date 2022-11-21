@@ -25,7 +25,7 @@ Nste projeto, desenvolvi uma aplicação com os princípios da arquitetura SOLID
 - *Clonar o repositório:*
 
 ```
-$ git clone git@github.com:mathews-r/trybesmith.git
+$ git clone git@github.com:mathews-r/trybers-and-dragons.git
 ```
 
 - *Acessar o projeto blogsapi:*
